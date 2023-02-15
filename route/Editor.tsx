@@ -10,6 +10,9 @@ import '../editor/DisabledEditorPlugin'; // 用于隐藏一些不需要的Editor
 import '../renderer/MyRenderer';
 import '../editor/MyRenderer';
 
+// @ts-ignore
+import {doHttp,getUrl,getUrlParam} from '../utils/httpUtil'
+
 let currentIndex = -1;
 
 let host = `${window.location.protocol}//${window.location.host}`;
@@ -51,6 +54,13 @@ export default inject('store')(
       currentIndex = index;
       store.updateSchema(store.pages[index].schema);
     }
+
+    doHttp(getUrl()+ '/api/admin/processUi/getById?id='+getUrlParam("id"),{},"get",(result)=>{
+        let v=result.data.content;
+        if(v){
+          store.updateSchema(v);
+        }
+    });
 
     function save() {
       store.updatePageSchemaAt(index);
