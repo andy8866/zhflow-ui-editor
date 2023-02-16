@@ -3,7 +3,6 @@ import axios from 'axios';
 export function getUrl(){
   let url=window.location.origin
   console.log(url);
-  console.log(url.indexOf("localhost"));
 
   if(url.indexOf("localhost")!=-1){
     return "http://localhost:8081";

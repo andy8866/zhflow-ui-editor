@@ -121,12 +121,6 @@ export default class EditorPage extends React.Component {
             className="is-fixed"
             showCustomRenderersPanel={true}
             amisEnv={amisEnv}
-            // amisEnv={{
-            //   fetcher: store.fetcher,
-            //   notify: store.notify,
-            //   alert: store.alert,
-            //   copy: store.copy,
-            // }}
         />
       </div>
     </div>;
