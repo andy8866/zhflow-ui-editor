@@ -187,6 +187,12 @@ export default inject('store')(
       store.setAddPageIsOpen(false);
     }
 
+    function transform(p:any){
+      console.log("dd")
+      console.log(p)
+      debugger
+    }
+
     return (
       <Layout
         aside={renderAside()}
@@ -199,7 +205,7 @@ export default inject('store')(
             <Route
               key={item.id}
               path={`/${item.path}`}
-              render={() => <AMISRenderer schema={item.schema} />}
+              render={() => <AMISRenderer schema={item.schema} transform={(p)=>transform(p)} />}
             />
           ))}
           <Route component={NotFound} />

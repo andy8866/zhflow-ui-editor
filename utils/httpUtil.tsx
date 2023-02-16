@@ -34,9 +34,9 @@ export function getUrlParam(paraName:any) {
   }
 }
 
-export function doHttp(url,data,method,successCallBack,failCallBack){
+export function doHttp(url:any,data:any,method:any,successCallBack:any,failCallBack:any){
   let headers={
-    "Authorization": "Bearer " +getUrlParam("token"),
+    "token": getUrlParam("token"),
     "content-type": "application/json"
   }
   axios({

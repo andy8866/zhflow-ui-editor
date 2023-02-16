@@ -5,7 +5,8 @@ import {observer} from 'mobx-react';
 import {IMainStore} from '../store';
 
 const Preview = React.lazy(() => import('./Preview'));
-const Editor = React.lazy(() => import('./Editor'));
+// const Editor = React.lazy(() => import('./Editor'));
+const EditorPage = React.lazy(() => import('../pages/EditorPage'));
 
 export default observer(function ({store}: {store: IMainStore}) {
   return (
@@ -18,7 +19,7 @@ export default observer(function ({store}: {store: IMainStore}) {
         >
           <Switch>
             <Redirect to={`/hello-world`} from={`/`} exact />
-            <Route path="/edit/:id" component={Editor} />
+            <Route path="/edit" component={EditorPage} />
             <Route component={Preview} />
           </Switch>
         </React.Suspense>
