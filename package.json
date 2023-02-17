@@ -6,7 +6,7 @@
   "scripts": {
     "test": "8082:admin  8083:website",
     "start": "fis3 server start --www ./public --port 3100 --no-daemon",
-    "dev": "fis3 release -cwd ./public",
+    "build": "fis3 release -cwd ./public",
     "gh-pages": "rm -rf gh-pages && fis3 release gh-pages -c",
     "prettier": "prettier --write '{component,scss,editor,renderer,route,store}/**/**/*.{js,jsx,ts,tsx,scss,json}'"
   },
