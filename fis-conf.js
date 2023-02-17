@@ -95,6 +95,10 @@ fis.match('/icons/**.svg', {
     ]
 });
 
+fis.match('*.{js,es,es6,jsx,ts,tsx}', {
+    preprocessor: fis.plugin('js-require-css')
+})
+
 fis.match('/mock/**.{json,js,conf}', {
     // isMod: false,
     useCompile: false

@@ -3,10 +3,10 @@ import axios from "axios";
 import {getUrl, getUrlParam} from "./utils/httpUtil";
 
 export const amisEnv = {
-    // replaceText:{
-    //     $url: getUrl(),
-    //     $token: getUrlParam("token")
-    // },
+    replaceText:{
+        $url: getUrl(),
+        $token: getUrlParam("token")
+    },
     replaceTextKeys: ['url'],
     // 下面三个接口必须实现
     fetcher: ({

@@ -560,9 +560,9 @@ amis-core@2.6.0, amis-core@^2.0.2, amis-core@^2.6.0:
     uncontrollable "7.2.1"
 
 amis-editor-core@*, amis-editor-core@^5.2.3-beta.16:
-  version "5.2.3-beta.16"
-  resolved "https://registry.npmmirror.com/amis-editor-core/-/amis-editor-core-5.2.3-beta.16.tgz#defe158a0cf87b607f3c9407e4d9806f18e33078"
-  integrity sha512-uknvOLQHWMgdvg4PH9RSz9i29NzouUv2cWCI1DhiQXvqcZTVunCXes9Hf57O/lnkB92s4ZIEkrgwvHjnGcbHpQ==
+  version "5.2.3"
+  resolved "https://registry.npmmirror.com/amis-editor-core/-/amis-editor-core-5.2.3.tgz#9dcc2135ffb4c2f3cf7de6a72d941d97a468c2d0"
+  integrity sha512-VoutEyLnJm2bhBo+GhEnJcAChGFnRleoa3YO77S5I4eqKJLUybB95flY8PM9ZNVa4unH0BnmgBC3wD79rKWlAQ==
   dependencies:
     axios "0.21.1"
     deep-diff "1.0.2"
@@ -591,12 +591,14 @@ amis-editor@^5.2.0:
     sortablejs "^1.14.0"
 
 amis-editor@^5.2.3-beta.16:
-  version "5.2.3-beta.16"
-  resolved "https://registry.npmmirror.com/amis-editor/-/amis-editor-5.2.3-beta.16.tgz#4b705b371383f083332e4fc1593fc7f14fe98e5d"
-  integrity sha512-zwSWRcqOSu6KBvAQp7bN+Lu6i/lu1Y/s3CNIQHE9fsKEN7e0gQ5YjRYIIVTb9CrgOhbnwOQGQIia5gr5++rXcA==
+  version "5.2.3"
+  resolved "https://registry.npmmirror.com/amis-editor/-/amis-editor-5.2.3.tgz#e26748d0b13ad69c4a58fa12c9c63d0992724478"
+  integrity sha512-Ff1DcDHF5R7Ep+lP1zH7aOco5eqaK6etvbQ/Hk/wW6iYKJP2WlMUhQe7oOPZMQZUFu85v/9/9AeoNt+Qf1FP7A==
   dependencies:
     "@webcomponents/webcomponentsjs" "^2.6.0"
     amis-editor-core "*"
+    amis-postcss "1.0.0"
+    amis-theme-editor "*"
     i18n-runtime "*"
     lodash "^4.17.15"
     mobx-state-tree "^3.17.3"
@@ -609,6 +611,23 @@ amis-formula@2.6.0, amis-formula@^2.6.0:
     lodash "^4.17.15"
     moment "^2.29.4"
     tslib "^2.3.1"
+
+amis-postcss@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmmirror.com/amis-postcss/-/amis-postcss-1.0.0.tgz#3bfbcbdf9ffe5d73a2b80b2a8012a6608936bb21"
+  integrity sha512-OeKbbTvsaIcOq2SZ1VV1GyshhF2fFbFXXc8IQ3ZTIu0uTtJBGFVYZ6sJ40nOznWeptEdfYpVdB/JEtBlXlSWag==
+
+amis-theme-editor-helper@*:
+  version "2.0.8"
+  resolved "https://registry.npmmirror.com/amis-theme-editor-helper/-/amis-theme-editor-helper-2.0.8.tgz#2ba45502b0b33ca699bdbea927965b7a11ab685f"
+  integrity sha512-q7QbQFfFFClrP4sWNJKhJOALjHwcqJViOodxL3d1CdALe/BLl2wym9Dpygfsm18aZicjLnEy27Y/Sw16EnT8tw==
+
+amis-theme-editor@*:
+  version "2.0.8"
+  resolved "https://registry.npmmirror.com/amis-theme-editor/-/amis-theme-editor-2.0.8.tgz#c597d1665478739748380120071877c61716413a"
+  integrity sha512-J7iv3i4ms0eTAm3TndFERYgWzmb9gzN7bkNyKY6rOp0IvRv/opUX1SJIVXbFk0m1DGUr/gBwC9IChPWs1q4JAQ==
+  dependencies:
+    amis-theme-editor-helper "*"
 
 amis-ui@2.6.0, amis-ui@^2.0.2, amis-ui@^2.6.0:
   version "2.6.0"
