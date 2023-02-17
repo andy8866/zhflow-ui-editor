@@ -105,7 +105,8 @@ export const MainStore = types
       afterCreate() {
         // persist store
         if (typeof window !== 'undefined' && window.localStorage) {
-          const storeData = window.localStorage.getItem('store');
+          // const storeData = window.localStorage.getItem('store');
+          const storeData = null;
           if (storeData) applySnapshot(self, JSON.parse(storeData));
 
           reaction(

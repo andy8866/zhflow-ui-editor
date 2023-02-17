@@ -2,7 +2,7 @@ import React from "react";
 import {Editor} from 'amis-editor';
 
 import {doHttp,getUrl,getUrlParam} from '../utils/httpUtil'
-import {toast} from "amis";
+import {toast,ToastComponent, AlertComponent, Spinner} from "amis";
 import {Icon} from "../icons";
 import {amisEnv} from "../amisEnv";
 
@@ -22,8 +22,15 @@ export default class EditorPage extends React.Component {
   }
 
   componentDidMount(){
+
+    const type=getUrlParam("type")
+    let url=getUrl()+ '/api/admin/processUi/getById?id='+getUrlParam("id");
+    if(type=="page"){
+      url=getUrl()+ '/api/admin/uiPage/getById?id='+getUrlParam("id")
+    }
+
     // @ts-ignore
-    doHttp(getUrl()+ '/api/admin/processUi/getById?id='+getUrlParam("id"),{},"get",(result:any)=>{
+    doHttp(url,{},"get",(result:any)=>{
       let v=result.data.content;
       console.log(v)
       if(!v){
@@ -46,8 +53,14 @@ export default class EditorPage extends React.Component {
     return this.state as EditorPageState;
   }
   save() {
+    const type=getUrlParam("type")
+    let url=getUrl()+ '/api/admin/processUi/save';
+    if(type=="page"){
+      url=getUrl()+ '/api/admin/uiPage/save'
+    }
+
     // @ts-ignore
-    doHttp(getUrl()+ '/api/admin/processUi/save',{
+    doHttp(url,{
       "id":getUrlParam("id"),
       "content":this.getState().schema
     },"post",(result:any)=>{
@@ -109,6 +122,8 @@ export default class EditorPage extends React.Component {
           )}
         </div>
       </div>
+      <ToastComponent key="toast" position={'top-right'} />
+      <AlertComponent key="alert" />
       <div className="Editor-inner">
         <Editor
             theme={'cxd'}

@@ -26,7 +26,6 @@ export class ManagerEditorPlugin extends BasePlugin {
     for (let index = 0, size = renderers.length; index < size; index++) {
       // 判断是否需要隐藏 Editor预置组件
       const pluginRendererName = renderers[index].rendererName;
-        console.log(pluginRendererName)
       if (pluginRendererName && disabledRenderers.indexOf(pluginRendererName) > -1) {
         renderers[index].disabledRendererPlugin = true; // 更新状态
       }

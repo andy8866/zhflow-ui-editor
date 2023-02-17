@@ -11,6 +11,7 @@ import '../editor/MyRenderer';
 
 // @ts-ignore
 import {doHttp,getUrl,getUrlParam} from '../utils/httpUtil'
+import {amisEnv} from "../amisEnv";
 
 export default inject('store')(
   observer(function ({
@@ -21,7 +22,14 @@ export default inject('store')(
   }: {store: IMainStore} & RouteComponentProps<{id: string}>) {
 
     if(!store.schema){
-      doHttp(getUrl()+ '/api/admin/processUi/getById?id='+getUrlParam("id"),{},"get",(result:any)=>{
+      const type=getUrlParam("type")
+      let url=getUrl()+ '/api/admin/processUi/getById?id='+getUrlParam("id");
+      if(type=="page"){
+        url=getUrl()+ '/api/admin/uiPage/getById?id='+getUrlParam("id")
+      }
+
+      // @ts-ignore
+      doHttp(url,{},"get",(result:any)=>{
         let v=result.data.content;
         console.log(v)
         if(!v){
@@ -36,12 +44,19 @@ export default inject('store')(
         }else{
           v=JSON.parse(v)
         }
-        store.updateSchema(v);
+        store.updateSchema(v)
       });
     }
 
     function save() {
-      doHttp(getUrl()+ '/api/admin/processUi/save',{
+      const type=getUrlParam("type")
+      let url=getUrl()+ '/api/admin/processUi/save';
+      if(type=="page"){
+        url=getUrl()+ '/api/admin/uiPage/save'
+      }
+
+      // @ts-ignore
+      doHttp(url,{
         "id":getUrlParam("id"),
         "content":store.schema
       },"post",(result:any)=>{
@@ -114,7 +129,9 @@ export default inject('store')(
             className="is-fixed"
             showCustomRenderersPanel={true}
             amisEnv={{
-              fetcher: store.fetcher,
+              replaceText: amisEnv.replaceText,
+              replaceTextKeys: amisEnv.replaceTextKeys,
+              fetcher: amisEnv.fetcher,
               notify: store.notify,
               alert: store.alert,
               copy: store.copy,

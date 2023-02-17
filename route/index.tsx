@@ -1,16 +1,16 @@
 import React from 'react';
 import {ToastComponent, AlertComponent, Spinner} from 'amis';
-import {Route, Switch, Redirect, HashRouter as Router} from 'react-router-dom';
+import {Route, Switch, Redirect, HashRouter,BrowserRouter} from 'react-router-dom';
 import {observer} from 'mobx-react';
 import {IMainStore} from '../store';
 
 const Preview = React.lazy(() => import('./Preview'));
-// const Editor = React.lazy(() => import('./Editor'));
+const Editor = React.lazy(() => import('./Editor'));
 const EditorPage = React.lazy(() => import('../pages/EditorPage'));
 
 export default observer(function ({store}: {store: IMainStore}) {
   return (
-    <Router>
+    <BrowserRouter>
       <div className="routes-wrapper">
         <ToastComponent key="toast" position={'top-right'} />
         <AlertComponent key="alert" />
@@ -18,12 +18,11 @@ export default observer(function ({store}: {store: IMainStore}) {
           fallback={<Spinner overlay className="m-t-lg" size="lg" />}
         >
           <Switch>
-            <Redirect to={`/hello-world`} from={`/`} exact />
-            <Route path="/edit" component={EditorPage} />
+            <Route path="/" component={EditorPage} />
             <Route component={Preview} />
           </Switch>
         </React.Suspense>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 });
