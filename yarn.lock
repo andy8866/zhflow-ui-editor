@@ -2406,6 +2406,14 @@ fis-optimizer-uglify-js@0.2.2:
     merge-source-map "1.0.1"
     uglify-js "2.4.15"
 
+fis-optimizer-uglify-js@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.npmmirror.com/fis-optimizer-uglify-js/-/fis-optimizer-uglify-js-0.2.3.tgz#4fae07729354815592938e98838cd7055bfa96e5"
+  integrity sha512-tgYFt7szfPL6YB2SAzLY/SkCKW9QxwVYK4i4MobTFcfviyUukn/phuBWAWuff3AQRlWxdnJAZtFcOhxoR+DGvw==
+  dependencies:
+    merge-source-map "1.0.1"
+    uglify-js "2.4.15"
+
 fis-parser-sass@^1.0.1:
   version "1.2.0"
   resolved "https://registry.npmmirror.com/fis-parser-sass/-/fis-parser-sass-1.2.0.tgz#e2bfcb300267351ed58e8151dea33eae182cec53"

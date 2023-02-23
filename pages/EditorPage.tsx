@@ -24,7 +24,7 @@ export default class EditorPage extends React.Component {
   componentDidMount(){
 
     const type=getUrlParam("type")
-    let url=getUrl()+ '/api/admin/processUi/getById?id='+getUrlParam("id");
+    let url=getUrl()+ '/api/proc/ui/getById?id='+getUrlParam("id");
     if(type=="page"){
       url=getUrl()+ '/api/admin/uiPage/getById?id='+getUrlParam("id")
     }
@@ -54,7 +54,7 @@ export default class EditorPage extends React.Component {
   }
   save() {
     const type=getUrlParam("type")
-    let url=getUrl()+ '/api/admin/processUi/save';
+    let url=getUrl()+ '/api/proc/ui/save';
     if(type=="page"){
       url=getUrl()+ '/api/admin/uiPage/save'
     }

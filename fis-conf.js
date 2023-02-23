@@ -249,6 +249,17 @@ fis.media('dev')
         packTo: null
     });
 
+fis.match('*.{js,ts,tsx}', {
+    optimizer: fis.plugin('terser'),
+});
+
+fis.media('prod').match('*', {
+    release: '/$0',
+    url: '/uiEditor$0'
+})
+
+
+
 const ghPages = fis.media('gh-pages');
 
 ghPages.match('/node_modules/(**)', {
